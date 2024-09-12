@@ -15,6 +15,7 @@ ICAP目前为止有三个版本，包括ICAP，ICAPE2以及ICAPE3。 UltraScale�
 ##    通过ICAP发送IPROG指令实现Multiboot的步骤如下
 
 ![image](https://github.com/user-attachments/assets/754aab97-9ecb-43ac-8c02-ae9107f285bf)
+
 首先写入同步头 32’hAA995566, 然后将需要跳转到的bit文件的起始地址写入WBSTAR寄存器，最后写入IPROG（internal PROGRAM_B）指令。
 
 这里需要注意一点，ICAP以及SelectMAP都存在位反转（Bit Swapping），也就是说，上表中所有的数据需要进行位反转之后才能接到ICAP的输入接口，同理，ICAP输出的值需要进行位反转后才能与实际的值对应起来，位反转的示例如下图。
