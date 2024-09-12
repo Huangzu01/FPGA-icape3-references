@@ -1,8 +1,5 @@
 # Verilog ICAPE Components Readme
 
-    
-![image](https://github.com/user-attachments/assets/974ce625-b4b6-48c7-8eb7-0b18f20e277b)# Verilog ICAPE Components Readme
-
 ## Introduction
     
 Xilinx FPGA 中ICAP(Internal Configuration Access Port) 指的是内部配置访问端口，其主要作用是通过内部配置访问端口（ICAP），
@@ -15,7 +12,7 @@ ICAP目前为止有三个版本，包括ICAP，ICAPE2以及ICAPE3。 UltraScale�
 
 ![image](https://github.com/user-attachments/assets/bcc24823-6402-48fd-a8c8-8a73305b57fa)
 
-###    通过ICAP发送IPROG指令实现Multiboot的步骤如下
+##    通过ICAP发送IPROG指令实现Multiboot的步骤如下
 
 ![image](https://github.com/user-attachments/assets/754aab97-9ecb-43ac-8c02-ae9107f285bf)
 首先写入同步头 32’hAA995566, 然后将需要跳转到的bit文件的起始地址写入WBSTAR寄存器，最后写入IPROG（internal PROGRAM_B）指令。
