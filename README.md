@@ -12,6 +12,35 @@ ICAP目前为止有三个版本，包括ICAP，ICAPE2以及ICAPE3。 UltraScale�
 
 ![image](https://github.com/user-attachments/assets/bcc24823-6402-48fd-a8c8-8a73305b57fa)
 
+###    ICAPE3 IO Define
+
+![Uploading image.png…]()
+
+###    ICAPE3 例化示例如下
+
+    // ICAPE3: Internal Configuration Access Port
+    // UltraScale
+    // Xilinx HDL Language Template, version 2019.1
+    ICAPE3 #(
+    .DEVICE_ID(32'h03628093),//pre-programmed Device ID value，used for simulation
+    // purposes.
+    .ICAP_AUTO_SWITCH("DISABLE"),//Enable switch ICAP using sync word
+    .SIM_CFG_FILE_NAME("NONE")//Raw Bitstream (RBT) file，parsed by the simulation
+    // model
+    )
+    ICAPE3_inst (
+    .AVAIL(AVAIL), // 1-bit output: Availability status of ICAP
+    .O(O), // 32-bit output: Configuration data output bus
+    .PRDONE(PRDONE),//1-bit output: Indicates completion of Partial Reconfiguration
+    .PRERROR(PRERROR),//1-bit output: Indicates Error during Partial Reconfiguration
+    .CLK(CLK), // 1-bit input: Clock input
+    .CSIB(CSIB), // 1-bit input: Active-Low ICAP enable
+    .I(I), // 32-bit input: Configuration data input bus
+    .RDWRB(RDWRB) // 1-bit input: Read/Write Select input
+    );
+    // End of ICAPE3_inst instantiation
+
+
 ##    通过ICAP发送IPROG指令实现Multiboot的步骤如下
 
 ![image](https://github.com/user-attachments/assets/754aab97-9ecb-43ac-8c02-ae9107f285bf)
